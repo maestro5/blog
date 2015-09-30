@@ -30,6 +30,7 @@ module Blog
       g.assets = false
       g.helper = false
       g.fixture_replacement :factory_girl, :dir => 'spec/factirues'
+      #g.template_engine :slim
     end
   end
 end

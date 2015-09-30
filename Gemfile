@@ -41,6 +41,9 @@ group :development, :test do
   gem 'pry-remote', '~> 0.1.8'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'faker', '~> 1.5.0'
+  gem 'slim-rails', '~> 3.0.1'
+  gem 'bootstrap-sass', '~> 3.3.5.1'
+  gem 'simple_form', '~> 3.1.0'
 end
 
 group :development do
