@@ -1,0 +1,6 @@
+br
+= simple_form_for @avatar, html: {multipart: true} do |f|
+  = f.error_messages
+  = f.input :filename, placeholder: "filename"
+  //= f.input :data
+  = f.submit "Add file"

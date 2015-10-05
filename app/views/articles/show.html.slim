@@ -1,0 +1,17 @@
+//= render 'posts/post'
+br
+.row
+  .col-md-1
+  .col-md-8
+    h2 = @article.title
+    p = @article.body
+    p = @article.author
+    p = @article.created_at
+    = link_to 'Edit', edit_article_path(@article), class: 'btn btn-primary'
+    = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'
+    br
+    br
+    h3 Comments
+    = render "comments/comments"
+    = render "comments/form"
+  .col-md-1

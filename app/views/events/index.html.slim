@@ -1,0 +1,15 @@
+p = link_to "New event", new_event_path
+.row
+- @events.each do |a|
+  .col-sm6.col-md-4
+    .thumbnail
+      p image
+      h3
+        = link_to a.title, event_path(a)
+      p = a.description
+      p = a.address
+      p = a.start_at
+      p = a.finish_at
+      p = a.author
+      = link_to 'Edit', edit_event_path(a), class: 'btn btn-primary'
+      = link_to 'Delete', event_path(a), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'

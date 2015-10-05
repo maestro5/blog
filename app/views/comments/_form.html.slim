@@ -1,0 +1,12 @@
+br
+= simple_form_for [@commentable, @comment] do |f|
+  - if @comment.errors.any?
+    h2 Please correct the following errors.
+    ul
+    - @comment.errors.full_messages.each do |msg|
+      li = msg
+
+  = f.input :author_name, placeholder: "Name"
+  = f.input :author_email, placeholder: "E-mail"
+  = f.input :body, input_html: { rows: '8'}, placeholder: "Input text"
+  = f.submit "Add comment"

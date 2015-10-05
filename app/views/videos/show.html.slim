@@ -1,0 +1,17 @@
+//= render 'posts/post'
+br
+.row
+  .col-md-1
+  .col-md-8
+    h2 = @video.title
+    p = @video.body
+    p = @video.author
+    p = @video.created_at
+    = link_to 'Edit', edit_video_path(@video), class: 'btn btn-primary'
+    = link_to 'Delete', video_path(@video), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'
+    br
+    br
+    h3 Comments
+    = render "comments/comments"
+    = render "comments/form"
+  .col-md-1

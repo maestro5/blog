@@ -1,0 +1,11 @@
+br
+= simple_form_for [@assetable, @asset], html: {multipart: true} do |f|
+  - if @asset.errors.any?
+    h2 Please correct the following errors.
+    ul
+    - @asset.errors.full_messages.each do |msg|
+      li = msg
+
+  = f.input :filename, placeholder: "filename"
+  //= f.input :data
+  = f.submit "Add file"

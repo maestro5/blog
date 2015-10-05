@@ -11,17 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930072915) do
+ActiveRecord::Schema.define(version: 20151004191558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assets", force: :cascade do |t|
+    t.string   "data"
+    t.string   "filename"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.string   "type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "assets", ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "author_name"
+    t.string   "author_email"
+    t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
+    t.string   "description"
     t.text     "body"
     t.string   "author"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "address"
+    t.datetime "start_at"
+    t.datetime "finish_at"
+    t.string   "type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

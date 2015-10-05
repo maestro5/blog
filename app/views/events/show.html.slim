@@ -1,0 +1,23 @@
+br
+.row
+  .col-md-1
+  .col-md-8
+    h2 = @event.title
+    h3 = @event.description
+    p
+      b = @event.address
+    p = @event.start_at
+    p = @event.finish_at
+    br
+    p = @event.body
+    p 
+      b = @event.author
+    p = @event.created_at
+    = link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary'
+    = link_to 'Delete', event_path(@event), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'
+    br
+    br
+    h3 Comments
+    = render "comments/comments"
+    = render "comments/form"
+  .col-md-1

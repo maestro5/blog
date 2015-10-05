@@ -1,0 +1,13 @@
+p = link_to "New video", new_video_path
+.row
+- @videos.each do |a|
+  .col-sm6.col-md-4
+    .thumbnail
+      p image
+      h3
+        = link_to a.title, video_path(a)
+      p = a.description
+      p = a.author
+      p = a.created_at
+      = link_to 'Edit', edit_video_path(a), class: 'btn btn-primary'
+      = link_to 'Delete', video_path(a), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'

@@ -44,6 +44,9 @@ group :development, :test do
   gem 'slim-rails', '~> 3.0.1'
   gem 'bootstrap-sass', '~> 3.3.5.1'
   gem 'simple_form', '~> 3.1.0'
+  gem 'mini_magick', '~> 4.3.3'
+  gem 'carrierwave', '~> 0.10.0'
+  gem 'kaminari', '~> 0.16.3'
 end
 
 group :development do
