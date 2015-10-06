@@ -1,14 +1,1 @@
-p = link_to "New post", new_article_path
-.row
-h2 Articles
-- @articles.each do |a|
-  .col-sm6.col-md-4
-    .thumbnail
-      p image
-      h3
-        = link_to a.title, article_path(a)
-      p = a.description 
-      p = a.author
-      p = a.created_at
-      = link_to 'Edit', edit_article_path(a), class: 'btn btn-primary'
-      = link_to 'Delete', article_path(a), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'
+= render 'posts/index_posts'

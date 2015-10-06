@@ -20,8 +20,8 @@ class AvatarsController < ApplicationController
 
 private
   def load_assetable
-    resource, id = request.path.split('/')[1, 2]
-    @assetable   = resource.singularize.classify.constantize.find(id)
+    _resource, _id = request.path.split('/')[1, 2]
+    @assetable   = _resource.singularize.classify.constantize.find(_id)
   end
 
   def asset_params

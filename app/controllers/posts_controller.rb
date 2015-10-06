@@ -1,17 +1,18 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :determine_class
 
   def index
-    @posts = Post.all
+    @posts = @current_class.all
   end
     
   def new
-    @post = Post.new
+    @post = @current_class.new
     @avatar = Avatar.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = @current_class.new(post_params)
     if @post.save
       redirect_to posts_path
     else
@@ -53,5 +54,10 @@ private
 
   def find_post
     @post = Post.find( params[:id] )
+  end
+
+  def determine_class
+    _resource = request.path.split('/')[1, 2]
+    @current_class = _resource[0].singularize.classify.constantize
   end
 end #PostsController

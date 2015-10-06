@@ -20,8 +20,8 @@ class CommentsController < ApplicationController
 
 private
   def load_commentable
-    resource, id = request.path.split('/')[1, 2]
-    @commentable = resource.singularize.classify.constantize.find(id)
+    _resource, _id = request.path.split('/')[1, 2]
+    @commentable = _resource.singularize.classify.constantize.find(_id)
   end
 
   def comment_params

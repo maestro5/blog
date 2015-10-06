@@ -1,13 +1,1 @@
-p = link_to "New post", new_post_path
-h2 Posts
-.row
-- @posts.each do |p|
-  .col-sm6.col-md-4
-    .thumbnail
-      p image
-      h3
-        = link_to p.title, post_path(p)
-      p = p.body
-      p = p.author
-      = link_to 'Edit', edit_post_path(p), class: 'btn btn-primary'
-      = link_to 'Delete', post_path(p), method: :delete, data: { confirm: 'sure?' }, class: 'btn btn-primary'
+= render 'index_posts'

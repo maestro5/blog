@@ -12,9 +12,11 @@ Rails.application.routes.draw do
 
   resources :videos do
     resources :comments
-end
+  end
 
   resources :events do
     resources :comments
   end
+
+  resources :avatars
 end
